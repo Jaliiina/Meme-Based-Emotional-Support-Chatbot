@@ -5,7 +5,7 @@ import pdb
 content=[]
 
 
-with open('/root/data/working/liujianhui/nlp_hw/train.json','r',encoding='utf-8') as f:
+with open('train.json','r',encoding='utf-8') as f:
     for line in f.readlines():
         tmp=json.loads(line)
         # content.append(tmp)
@@ -16,6 +16,6 @@ with open('/root/data/working/liujianhui/nlp_hw/train.json','r',encoding='utf-8'
         # pdb.set_trace()
         tmp['rag']=total
         content.append(tmp)
-with open('/root/data/working/liujianhui/nlp_hw/train_with_rag.json','w',encoding='utf-8') as f:
+with open('train_with_rag.json','w',encoding='utf-8') as f:
     for tmp in content:
         f.write(json.dumps(tmp,ensure_ascii=False)+'\n')
