@@ -7,12 +7,12 @@ SYSTEM="""
 """
 import json
 prompt_list=[]
-with open(r'/root/data/working/liujianhui/nlp_hw/train_with_rag.json','r',encoding='utf-8') as f:
+with open(r'train_with_rag.json','r',encoding='utf-8') as f:
     for line in f.readlines():
         content=json.loads(line)
         prompt=SYSTEM.format(q=content['prompt'],a=content['response'],g=content['rag'])
         prompt_list.append({"prompt":prompt})
         # import pdb;pdb.set_trace()
-with open(r'/root/data/working/liujianhui/nlp_hw/train_with_rag_for_poke.json','w',encoding='utf-8') as f:
+with open(r'train_with_rag_for_poke.json','w',encoding='utf-8') as f:
     for prompt in prompt_list:
         f.write(json.dumps(prompt,ensure_ascii=False)+'\n')
