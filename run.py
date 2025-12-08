@@ -11,9 +11,9 @@ import os
 import gradio as gr
 import pickle
 URL1="w8smrcmj_l0408comfort_spd"
-reader = Reader(r'/root/data/working/liujianhui/nlp_hw/geng')
+reader = Reader(r'geng')
 corpus = reader.load()
-retriever = Retriever(corpus=corpus, emb_model_name_or_path='/share/models/bge-large-zh-v1.5')
+retriever = Retriever(corpus=corpus, emb_model_name_or_path='bge-large-zh-v1.5')
 reranker = Reranker()
 SYSTEM="""
 你是一个风格化的聊天助手，现在我想把一些有意思的流行梗加入到原来的回答中，使得原来的回答更加风趣、幽默、滑稽、抽象、犀利、骚气，越骚气越好，请你帮我完成新回答的修改撰写，我会给你提供原问答对话和可以融入其中的流行梗。注意融入梗的时候，可以对原来的梗做一些灵活的修改，不必一模一样地把梗加进去，而且使用梗的时候也不用特意用引号标注，这样显得很刻意不够自然。注意一定要自然地运用梗，一点要多利用梗，哪怕稍微偏离一点安慰，也要多融合几个梗进去，就当是在讲笑话，最后圆回来把主题放到安慰上。
@@ -31,14 +31,14 @@ def get_rag(text,top_num):
     return reranked_docs
 
 def get_msg(id):
-    base_path=r'/root/data/working/liujianhui/nlp_hw/chat_saving/'+str(id)+'.pkl'
+    base_path=r'chat_saving/'+str(id)+'.pkl'
     if os.path.exists(base_path):
         with open(base_path,'rb') as f:
             return pickle.load(f)
     else:
         return []
 def save_msg(message,id):
-    base_path=r'/root/data/working/liujianhui/nlp_hw/chat_saving/'+str(id)+'.pkl'
+    base_path=r'chat_saving/'+str(id)+'.pkl'
     with open(base_path,'wb') as f:
         pickle.dump(message,f)
 
