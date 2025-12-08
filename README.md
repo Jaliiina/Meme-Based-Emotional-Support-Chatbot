@@ -110,6 +110,7 @@ User Query + Rational Answer + Retrieved Memes + Style Instructions
 ```bash
 pip install -r requirements.txt
 python run.py
+```
 Launches a local Gradio interface for interactive testing.
 
 ## 📌 Highlights
