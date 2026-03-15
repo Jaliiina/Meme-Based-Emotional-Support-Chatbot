@@ -18,7 +18,7 @@ def get_completion(message, address):
     url = 'https://qianfan.baidubce.com/v2/chat/completions'
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer bce-v3/ALTAK-9mrsJ85ZgN7GOCiywfcA1/b67875ad80c340ff6f819865b79fcef6c015d44b'
+        'Authorization': ''
     }
     data = {
         "model": address,
